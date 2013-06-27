@@ -1,0 +1,430 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Russian resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+#ifdef _WIN32
+LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RT_MANIFEST
+//
+
+1                       RT_MANIFEST             "SmallBackup.manifest"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINMENU MENUEX 
+BEGIN
+    POPUP "Файл",                           65535,MFT_STRING,MFS_ENABLED
+    BEGIN
+        MENUITEM "Выход\tCtrl+Q",               102,MFT_STRING,MFS_ENABLED
+    END
+    POPUP "Задача",                         65535,MFT_STRING,MFS_ENABLED
+    BEGIN
+        MENUITEM "Новая задача\tIns",           103,MFT_STRING,MFS_ENABLED
+        MENUITEM "Удалить задачу\tDel",         104,MFT_STRING,MFS_GRAYED
+        MENUITEM MFT_SEPARATOR
+        MENUITEM "Изменить задачу\tEnter",      111,MFT_STRING,MFS_GRAYED
+        MENUITEM "Выполнить задачу",            109,MFT_STRING,MFS_GRAYED
+        MENUITEM "Показать прогресс",           110,MFT_STRING,MFS_GRAYED
+    END
+    POPUP "Настройки",                      65535,MFT_STRING,MFS_ENABLED
+    BEGIN
+        MENUITEM "Настройки\tCtrl+O",           118,MFT_STRING,MFS_ENABLED
+    END
+    POPUP "Справка",                        65535,
+    MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
+    BEGIN
+        MENUITEM "О программе",                 123,MFT_STRING,MFS_ENABLED
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_TASK_PROGRESS DIALOGEX 0, 0, 270, 170
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Спрятать",IDOK,155,150,50,14
+    PUSHBUTTON      "Прервать",IDCANCEL,214,150,50,14
+    CONTROL         "",IDC_PROGRESS,"msctls_progress32",WS_BORDER,6,6,258,12
+    LTEXT           "PROCEED_FILES",IDC_PROCEED_FILES,6,34,150,8,0,
+                    WS_EX_TRANSPARENT
+    LTEXT           "INCLUDED_FILES",IDC_INCLUDED_FILES,6,46,241,8
+    LTEXT           "EXCLUDE_FILES",IDC_EXCLUDED_FILES,6,58,241,8,0,
+                    WS_EX_TRANSPARENT
+    LTEXT           "PROCEED_FOLDERS",IDC_PROCEED_FOLDERS,6,22,150,8
+    CONTROL         "Закрыть по окончании",IDC_AUTO_CLOSE,"Button",
+                    BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,6,152,93,
+                    10
+    RTEXT           "IDC_ERRORS",IDC_ERRORS,167,22,97,8
+    EDITTEXT        IDC_LOG,6,72,258,75,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_READONLY | WS_VSCROLL | WS_HSCROLL
+    RTEXT           "IDC_FINISHED_BYTES",IDC_FINISHED_BYTES,167,34,97,8
+END
+
+IDD_OPTIONS_SHEET DIALOGEX 0, 0, 300, 113
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Настройки"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_SOUND,16,34,149,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_CHOOSE_SOUND,167,34,13,13
+    PUSHBUTTON      "Стоп",IDC_STOP_SOUND,238,34,50,13
+    PUSHBUTTON      "Проиграть",IDC_PlAY_SOUND,184,34,50,13
+    CONTROL         "Проиграть звук",IDC_USE_SOUND,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,16,20,69,10
+    GROUPBOX        "При окончании задачи",IDC_STATIC,7,7,285,61
+    CONTROL         "Показать информацию о выполненной задаче",
+                    IDC_SHOW_PROGRESS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    16,52,173,10
+    GROUPBOX        "Лог-файл (журнал событий)",IDC_STATIC,7,76,285,31
+    LTEXT           "Максимальный размер файла журнала (Кб)",IDC_STATIC,16,
+                    90,147,8
+    EDITTEXT        IDC_LOG_SIZE,167,88,50,14,ES_AUTOHSCROLL | ES_NUMBER
+END
+
+IDD_NEW_TASK_SHEET DIALOGEX 0, 0, 310, 169
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Новая задача"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Название задачи",IDC_STATIC,6,8,59,8
+    LTEXT           "Исходная папка",IDC_STATIC,6,26,56,8
+    LTEXT           "Включать файлы",IDC_STATIC,6,106,60,8
+    LTEXT           "Исключать файлы",IDC_STATIC,6,136,64,8
+    EDITTEXT        IDC_TASK_NAME,78,6,226,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SRC_FOLDER,78,24,213,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_CHOOSE_SRC_FOLDER,292,25,12,12
+    CONTROL         "Обрабатывать подпапки",IDC_SUBFOLDERS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,78,42,101,10
+    EDITTEXT        IDC_DEST_FOLDER,78,56,213,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_CHOOSE_DEST_FOLDER,292,57,12,12
+    COMBOBOX        IDC_GENERATE_NAME,78,74,198,30,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "+",IDC_ADD_TEMPLATE,278,74,12,12
+    PUSHBUTTON      "-",IDC_DEL_TEMPLATE,292,74,12,12
+    EDITTEXT        IDC_INCLUDE_MASK,78,104,226,26,ES_MULTILINE | 
+                    ES_AUTOVSCROLL
+    EDITTEXT        IDC_EXCLUDE_MASK,78,135,226,26,ES_MULTILINE | 
+                    ES_AUTOVSCROLL
+    LTEXT           "Папка назначения",IDC_STATIC,6,58,63,8
+    LTEXT           "Генерировать имя",IDC_STATIC,6,76,63,8
+    LTEXT           "Static",IDC_GENERATE_RESULT,16,90,288,8
+END
+
+IDD_SCHEDULE_SHEET DIALOGEX 0, 0, 310, 174
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Расписание"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_TIME_BLOCKS_TREE,"SysTreeView32",TVS_HASBUTTONS | 
+                    TVS_LINESATROOT | TVS_SHOWSELALWAYS | TVS_FULLROWSELECT | 
+                    WS_BORDER | WS_TABSTOP,6,22,143,128
+    PUSHBUTTON      "Добавить",IDC_TIME_BLOCK_ADD,6,154,65,14
+    PUSHBUTTON      "Удалить",IDC_TIME_BLOCK_DEL,84,154,65,14
+    LTEXT           "Тип главного блока",IDC_STATIC,157,24,68,8
+    COMBOBOX        IDC_MAIN_TB_TYPE,229,22,74,30,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Свойства временного блока",IDC_STATIC,157,40,146,48
+    LTEXT           "Час",IDC_TB_PROPS_FROM_ST,165,54,44,8
+    GROUPBOX        "Выполнение задачи",IDC_STATIC,157,92,146,48
+    LTEXT           "Время выполнения (мин)",IDC_EXECUTE_MIN_ST,165,106,84,8
+    COMBOBOX        IDC_EXECUTE_MIN,253,104,42,30,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_TB_PROPS_FROM,214,52,81,30,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    CONTROL         "По",IDC_TB_PROPS_USE_PERIOD,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,165,70,25,10
+    COMBOBOX        IDC_TB_PROPS_TO,214,68,81,30,CBS_DROPDOWNLIST | 
+                    WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Повторять каждые",IDC_EXECUTE_DO_REPEAT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,165,122,82,10
+    EDITTEXT        IDC_EXECUTE_REPEAT_MIN,253,120,42,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER | WS_DISABLED
+    CONTROL         "",IDC_EXECUTE_REPEAT_MIN_UD,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,283,120,
+                    11,14
+    LTEXT           "Следующее выполнение:",IDC_STATIC,157,148,88,8
+    LTEXT           "Static",IDC_NEXT_RUN_ST,157,160,146,8
+    CONTROL         "Расписание активно",IDC_SCHEDULE_ACTIVE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,6,8,85,10
+END
+
+IDD_ARCHIVE_SET DIALOGEX 0, 0, 300, 196
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_ARCHIVER_EXE,78,30,202,14,ES_AUTOHSCROLL
+    LTEXT           "Файл архиватора",IDC_STATIC,6,32,60,8
+    LTEXT           "Командная строка",IDC_STATIC,6,50,64,8
+    EDITTEXT        IDC_COMMAND_LINE,78,48,216,28,ES_MULTILINE | 
+                    ES_AUTOVSCROLL
+    LISTBOX         IDC_PARAMS,6,92,204,98,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | 
+                    WS_HSCROLL | WS_TABSTOP
+    LTEXT           "Параметры командной строки",IDC_STATIC,6,80,103,8
+    PUSHBUTTON      "Добавить",IDC_ADD_PARAM,214,92,80,14
+    PUSHBUTTON      "Удалить",IDC_DEL_PARAM,214,110,80,14
+    PUSHBUTTON      "...",IDC_CHOOSE_ARCHIVER,282,31,12,12
+    LTEXT           "Параметр",IDC_STATIC,224,134,34,8
+    LTEXT           "Значение",IDC_STATIC,224,164,33,8
+    EDITTEXT        IDC_PARAM,214,146,80,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_VALUE,214,176,80,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Загрузить конфигурацию архиватора",IDC_LOAD_PRESET,6,6,
+                    150,14
+END
+
+IDD_ARCHIVE_SHEET DIALOGEX 0, 0, 310, 169
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "Выполнять архивацию",IDC_DO_ARCHIVE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,6,8,93,10
+    COMBOBOX        IDC_COMPRESS_LEVEL,203,6,101,30,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Метод сжатия",IDC_STATIC,149,8,50,8
+    CONTROL         "Самораспаковывающийся",IDC_SFX,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,6,28,105,10
+    CONTROL         "Удалить файлы после архивации",IDC_DEL_FILES,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,6,42,129,10
+    CONTROL         "Заблокировать архив",IDC_LOCK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,6,56,90,10
+    LTEXT           "Дополнительные параметры",IDC_STATIC,6,70,99,8
+    EDITTEXT        IDC_TASK_CMD,6,82,298,14,ES_AUTOHSCROLL
+END
+
+IDD_LOAD_ARCH_PRESET DIALOGEX 0, 0, 170, 90
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Конфигурации"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,59,69,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,113,69,50,14
+    LISTBOX         IDC_PRESETS,7,7,156,59,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | 
+                    WS_TABSTOP
+END
+
+IDD_ABOUT DIALOGEX 0, 0, 178, 86
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "О программе"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,64,66,50,14
+    LTEXT           "Small Backup 1.0",IDC_STATIC,6,6,54,8
+    CONTROL         "Программа для резервного копирования файлов",IDC_STATIC,
+                    "Static",SS_LEFTNOWORDWRAP | WS_GROUP,6,22,166,8
+    LTEXT           "Интернет: http://www.smallb.info",IDC_STATIC,6,38,112,8
+    LTEXT           "Почта: smallbackup@smallb.info",IDC_STATIC,6,50,105,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_TASK_PROGRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 264
+        VERTGUIDE, 247
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 164
+    END
+
+    IDD_OPTIONS_SHEET, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 292
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 106
+    END
+
+    IDD_NEW_TASK_SHEET, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 304
+        VERTGUIDE, 78
+        BOTTOMMARGIN, 161
+        HORZGUIDE, 6
+        HORZGUIDE, 24
+        HORZGUIDE, 42
+        HORZGUIDE, 56
+        HORZGUIDE, 74
+        HORZGUIDE, 104
+    END
+
+    IDD_SCHEDULE_SHEET, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 303
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 167
+    END
+
+    IDD_ARCHIVE_SET, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 294
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 190
+    END
+
+    IDD_ARCHIVE_SHEET, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 304
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 163
+    END
+
+    IDD_LOAD_ARCH_PRESET, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 163
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+    END
+
+    IDD_ABOUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 172
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 80
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MAIN_APP_SMALL      ICON                    "Small.ico"
+IDI_MAIN_APP            ICON                    "Large.ico"
+IDI_ICON2               ICON                    "Tray02.ico"
+IDI_ICON3               ICON                    "Tray03.ico"
+IDI_ICON4               ICON                    "Tray04.ico"
+IDI_ICON5               ICON                    "Tray05.ico"
+IDI_ICON6               ICON                    "Tray06.ico"
+IDI_ICON7               ICON                    "Tray07.ico"
+IDI_ICON8               ICON                    "Tray08.ico"
+IDI_ICON9               ICON                    "Tray09.ico"
+IDI_ICON10              ICON                    "Tray10.ico"
+IDI_ICON12              ICON                    "Tray12.ico"
+IDI_ICON13              ICON                    "Tray13.ico"
+IDI_ICON14              ICON                    "Tray14.ico"
+IDI_ICON15              ICON                    "Tray15.ico"
+IDI_ICON16              ICON                    "Tray16.ico"
+IDI_ICON17              ICON                    "Tray17.ico"
+IDI_ICON18              ICON                    "Tray18.ico"
+IDI_ICON19              ICON                    "Tray19.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_ACCELERATORS ACCELERATORS 
+BEGIN
+    "Q",            ID_FILE_EXIT,           VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_OPTIONS_OPTIONS,     VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_TASK_NEW,            VIRTKEY, NOINVERT
+    VK_DELETE,      ID_TASK_DELETE,         VIRTKEY, NOINVERT
+    VK_RETURN,      ID_TASK_CHANGE,         VIRTKEY, NOINVERT
+END
+
+#endif    // Russian resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

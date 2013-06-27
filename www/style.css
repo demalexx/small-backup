@@ -1,0 +1,210 @@
+a
+{
+	font-family: verdana;
+	color: blue;
+	text-decoration: none;
+}
+
+a:hover
+{
+	color: blue;
+	text-decoration: underline;
+}
+
+a:visited
+{
+	color: gray;
+}
+
+/* Заголовок страницы - "Small Backup" */
+.SmallBackup
+{
+	font-size: xx-large;
+	font-weight: bold;
+	
+	padding-bottom: 10pt;
+}
+
+/* Левая панель - панель навигации */
+.LeftPanel
+{
+	border: 1pt solid;
+	
+	padding: 5pt;
+}
+
+/* Контейнер текста справа */
+.TextCont
+{
+	font-family: verdana;
+	border: 1pt solid;
+	
+	padding: 10pt;
+}
+
+h1 /*.DescrTopic*/
+{
+	font-family: arial;
+	font-size: x-large;
+	
+	padding-top: 20pt;
+	padding-bottom: 5pt;
+	margin: 0 0 0 0;
+}
+
+/* Блок текста от одного h1 до другого */
+div.Text
+{
+	font-family: verdana;
+	font-size: small;
+	
+	padding: 0;
+}
+
+p, p.First, p.Last, p.Alone
+{
+	line-height: 140%;
+}
+
+/* Первый параграф, не надо отступа сверху */
+p.First/*DescrTopicFirst*/
+{
+	margin-top: 0pt;
+}
+
+/* Последний параграф, не надо отступа снизу */
+p.Last/*DescrTopicLast*/
+{
+	margin-bottom: 0pt;
+}
+
+/* Единственный параграф, не нужны отступы сверху и снизу */
+p.Alone/*DescrTopicAlone*/
+{
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+}
+
+/* Центрированная картинка без обтекания */
+p.CenterImg/*DescrTopicImage*/
+{
+	text-align: center;
+}
+
+/* Ключевые слова, термины и т.д. */
+span.Key
+{
+	color: maroon;
+	letter-spacing: 0.1em;
+}
+
+/* Пункты меню, названия кнопок и т.д., т.е. пользовательский интерфейс */
+span.UI
+{
+	letter-spacing: 0.1em;
+	color: teal;
+}
+
+/* Стили таблицы макросов даты (генерирование имени папки используя текущую дату) */
+
+/* Строка с символами и описанием */
+td.Chars, td.CharsDesc
+{
+	padding-top: 2.5pt;
+	padding-bottom: 2.5pt;
+}
+
+/* Символ */
+td.Chars
+{
+	font-family: "courier new";
+	text-align: center;
+	background-color: #F7F7F7;
+}
+
+/* Описание */
+td.CharsDesc
+{
+	padding-left: 1em;
+	background-color: #FCFCFC;
+}
+
+/* 
+###############################################################################
+Стили гостевой книги
+*/
+div.gbEntryCont, div.gbEntryContLast
+{
+   margin-bottom: 10pt;
+   /*padding: 2pt;*/
+   background-color: #FCFCFC;
+   /*border: 1px solid;*/
+}
+
+div.gbEntryContLast
+{
+   margin-bottom: 0;
+}
+
+div.gbEntryInfoCont
+{
+   background-color: #F0F0F0;
+   padding: 0.2em;
+   padding-bottom: 0.3em;
+   
+   border: 1px solid;
+}
+
+div.gbMessageCont
+{
+   padding-left: 25pt;
+   padding-top: 10pt;
+   padding-bottom: 10pt;
+   
+   border: 1px solid;
+   border-top: 0;
+}
+
+div.gbUserInfoCont, div.gbEMailCont
+{
+	margin: 0.2em;
+}
+
+span.gbUserLabel, span.gbEMailLabel
+{
+	font-size: x-small;
+	font-weight: bold;
+}
+
+span.gbUserText, span.gbEMailText
+{
+	font-size: x-small;
+}
+
+div.gbAdded
+{
+	float: right;
+	margin: 0.2em;
+}
+
+span.gbAddedLabel
+{
+	font-size: x-small;
+	font-weight: bold;
+}
+
+span.gbAddedText
+{
+	font-size: x-small;
+}
+
+div.gbActionCont
+{
+	float: right;
+	margin: 0.2em;
+}
+
+span.gbDelEntry, span.gbEditEntry
+{
+	font-size: x-small;
+}

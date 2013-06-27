@@ -1,0 +1,5 @@
+%dd.MM.yyyy% (%HH-mm%)
+%dd MMM yyyy% (%HH-mm%)
+%dd MMMM yyyy% (%HH-mm%)
+%dd_MM_yyyy% (%HH_mm%)
+%ddMMyyyy_HHmm%

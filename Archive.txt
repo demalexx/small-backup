@@ -1,0 +1,15 @@
+Ключи (для WinRar):
+ * степень сжатия (-m<n>)
+ * ключ архивирования (A)
+ * самораспаковывающийся архив (-sfx[имя])
+ * 
+
+Program EXE = C:\Program Files\WinRAR\WinRAR.exe
+A -%compress% %-sfx% %ARCHIVE% @%FILELIST%
+
+compress0 = m0
+compress1 = m1
+compress2 = m2
+compress3 = m3
+compress4 = m4
+compress5 = m5
